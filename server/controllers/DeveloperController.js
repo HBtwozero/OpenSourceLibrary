@@ -7,10 +7,17 @@
  */
 
 // const callbacks = require('../config/callbacks.js');
-// const Developer = require('../middlewares/models/').Developer;
+const Developer = require('../middlewares/models/').Developer;
 
 // require('dotenv').config();
 // var secret = process.env.SECRET;
+//get some fake data for example
+const faker = require('faker');
+
+const email = faker.internet.email();
+const password = faker.internet.password();
+const fullName  = faker.name.lastName();
+const body = {fullname: fullName, email: email, password: password  };
 
 class DeveloperController{
         // Developer welcome message
@@ -72,6 +79,19 @@ class DeveloperController{
 // res.sendStatus(404) // equivalent to res.status(404).send('Not Found')
 // res.sendStatus(500) // equivalent to res.status(500).send('Internal Server Error')
         }
+    }
+
+    static create(req, res){
+        //create a user
+        // const{firstName, email, password} = req.body;
+        return Developer.create(body).then(userData=>
+            res.status(201).send({
+                message: `Your User with the title ${fullName} has been created successfully `,
+                userData
+            })
+            )
+        
+
     }
 
     

@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     alias: DataTypes.STRING,
     cover: DataTypes.BLOB,
     description: DataTypes.STRING,
-    genre: DataTypes.ENUM,
+    genre: DataTypes.STRING,
     isbnNo: DataTypes.STRING,
     pages: DataTypes.INTEGER
   }, {
