@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors")
-
+require('dotenv').config();
 const pool = require('./database')
 
 const DeveloperController = require('./controllers/DeveloperController')
@@ -24,6 +24,8 @@ app.get('/developer',DeveloperController.welcome);
 
 // developer login
 app.post('/developer/login', DeveloperController.login);
+
+app.post('/developer/create', DeveloperController.create);
 
 
 //Create Books

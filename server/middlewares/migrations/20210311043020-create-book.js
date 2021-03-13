@@ -27,7 +27,7 @@ module.exports = {
         },
       },
       genre: {
-        type: Sequelize.ENUM,
+        type: Sequelize.STRING,
          values: [
           'Tragedy',
           'Adventure',
